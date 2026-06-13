@@ -12,6 +12,30 @@
 
 *Business intelligence — track the market without standing up heavyweight infrastructure.*
 
+## Usage — step by step
+
+1. **Install** from source (Python 3.9+):
+   ```bash
+   pip install .
+   ```
+2. **Add** a page to track with price/feature extractors (`NAME:KIND:PATTERN`):
+   ```bash
+   pricepulse add https://example.com/pricing --price "pro:regex:[0-9]+/mo" --label "Competitor Pro"
+   ```
+3. **Snapshot** all tracked pages (fetch + extract + store):
+   ```bash
+   pricepulse snapshot
+   ```
+4. **Diff** a page vs its previous snapshot and read the change set:
+   ```bash
+   pricepulse diff https://example.com/pricing --format json
+   ```
+5. **Automate** — loop on an interval and POST changes to a webhook (or a single `--once` pass in CI):
+   ```bash
+   pricepulse watch --interval 300 --webhook https://hooks.example.com/pricepulse
+   ```
+   Also: `pricepulse list` and `pricepulse mcp` (MCP stdio server).
+
 ## Why
 
 Pricing pages are public, change quietly, and matter a lot. `pricepulse` tracks
