@@ -141,6 +141,12 @@ with `--store PATH`). The schema is tiny: `pages`, `fields`, `snapshots`.
 A failed fetch never crashes a run: `snapshot` reports the error per-page and
 exits non-zero; `watch` logs the error and keeps polling the other pages.
 
+## Interoperability
+
+`{}` composes with the 300+ tool Cognis suite — JSON in/out and a shared
+OpenAI-compatible `/v1` backbone. See **[INTEROP.md](INTEROP.md)** for the
+suite map, composition patterns, and reference stacks.
+
 ## License
 
 Cognis Open Collaboration License (COCL) v1.0 — see [LICENSE](LICENSE).
