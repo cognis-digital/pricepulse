@@ -34,3 +34,6 @@ pricepulse = "pricepulse.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pricepulse"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
