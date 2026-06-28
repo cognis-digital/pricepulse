@@ -1,0 +1,3 @@
+$ pricepulse-emit --version
+
+pricepulse 0.1.0

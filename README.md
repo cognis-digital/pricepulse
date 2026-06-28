@@ -12,6 +12,68 @@
 
 *Business intelligence — track the market without standing up heavyweight infrastructure.*
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ pricepulse-emit --version
+pricepulse 0.1.0
+```
+
+```console
+$ pricepulse-emit --help
+usage: pricepulse [-h] [--version] [--store STORE_TOP]
+                  {add,snapshot,diff,watch,list,mcp} ...
+
+Monitor competitor pricing/feature pages for changes with diff alerts.
+
+positional arguments:
+  {add,snapshot,diff,watch,list,mcp}
+    add                 Track a page + price/feature extractors.
+    snapshot            Fetch + extract + store a snapshot.
+    diff                Show changes vs the previous snapshot.
+    watch               Loop snapshot+diff on an interval.
+    list                List tracked pages and extractors.
+    mcp                 Run as an MCP server (stdio JSON-RPC).
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --store STORE_TOP     SQLite store path (default: pricepulse.db).
+```
+
+> Blocks above are real `pricepulse` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+    "id": "1234567890",
+    "title": "Suspicious Activity Detected",
+    "description": "Anomalous network traffic detected from IP 192.168.1.100",
+    "created_by": "John Doe",
+    "created_at": "2023-02-16T14:30:00Z",
+    "updated_at": "2023-02-16T14:30:00Z",
+    "findings": [
+        {
+            "id": "1234567890-find-1",
+            "title": "Malicious Traffic Detected",
+            "description": "Unusual network traffic patterns detected from IP 192.168.1.100"
+        },
+        {
+            "id": "1234567890-find-2",
+            "title": "Potential Malware Infection",
+            "description": "Possible malware infection detected on host 192.168.1.100"
+        }
+    ]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** from source (Python 3.9+):
